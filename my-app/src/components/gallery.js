@@ -4,6 +4,16 @@ import App from './App';
 
 class Gallery extends Component {
 
+handleClick(index, props) {
+        // const currentCharacterInState = this.props.characters.slice();
+        // const shuffledCharacter = this.shuffle(currentCharacterInState);
+        // this.setState({ characters: shuffledCharacter });
+        this.props.wow(index)
+        //currentCharacterInState[index]['image'] = "http://via.placeholder.com/350x150";
+        // const count = this.props.count
+        // console.log("THIS WAS CLICKED", this.props.characters[index].name)
+    }
+
         shuffle(values) {
         for (let i = values.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -13,24 +23,16 @@ class Gallery extends Component {
         return values;
     }
 
-handleClick(index, props) {
-        // const currentCharacterInState = this.props.characters.slice();
-        // const shuffledCharacter = this.shuffle(currentCharacterInState);
-        // this.setState({ characters: shuffledCharacter });
-        this.props.wow(index)
-        //currentCharacterInState[index]['image'] = "http://via.placeholder.com/350x150";
-            // const count = this.props.count
-        // console.log("THIS WAS CLICKED", this.props.characters[index].name)
-    }
 
     render() {
-        let characters = this.props.characters;
-        // console.log(characters)
-        return (
-            characters.map((character, index) => {
-                return(
+        let fools = this.props.characters;
+        const currentCharacterInState = this.props.characters.slice();
+        const shuffledChar = this.shuffle(fools);
 
-                    <div key={index}  onClick={ () => this.handleClick(index)} className="box">
+        return (
+            fools.map((character, index) => {
+                return(
+                    <div key={index}  onClick={() => this.handleClick(index)} className="box">
                         <img alt={character.name} src={character.image} height="190px" width="190px" />
                     </div>
                 )

@@ -24,7 +24,7 @@ class App extends Component {
         this.setState({ characters: characterz });
     }
 
-        shuffle(values) {
+    shuffle(values) {
         for (let i = values.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [values[i], values[j]] = [values[j], values[i]];
@@ -40,7 +40,7 @@ class App extends Component {
         this.setState({ characters: shuffledCharacter });
         //currentCharacterInState[index]['image'] = "http://via.placeholder.com/350x150"
         this.state.count++
-        const count = this.state.count
+            const count = this.state.count
         // console.log(count)
         // const score; 
         console.log("THIS WAS CLICKED", this.state.characters[index].name)
@@ -70,8 +70,9 @@ class App extends Component {
 
 
     render() {
-        return (
-            <div className="App">
+      
+                return (
+                    <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Clicky Game</h1>
@@ -81,9 +82,13 @@ class App extends Component {
          <Gallery  characters = { this.state.characters }
                     wow = {this.wow} />
 
-      </div>
-        );
+                    </div>
+                        )   
+                                                      }
+                      
+        
+
     }
-}
+
 
 export default App;
